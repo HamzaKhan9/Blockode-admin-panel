@@ -44,6 +44,15 @@ const Login: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const onFinish = async (values: any) => {
+    const allowedEmails = [
+      "hamzalodhi03163045212@gmail.com",
+      "mhkl7642@gmail.com",
+    ];
+
+    if (!allowedEmails.includes(values.username)) {
+      message.error("Only Owner can login");
+      return;
+    }
     try {
       setLoading(true);
       const userData = await Auth.login(values.username, values.password);

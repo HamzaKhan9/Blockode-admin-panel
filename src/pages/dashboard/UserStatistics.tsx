@@ -51,9 +51,11 @@ const UserStatistics = () => {
 
   return (
     <div style={{ maxWidth: "100vw" }}>
-      <Row gutter={16}>
+      <Row gutter={16} style={{ justifyContent: "center" }}>
         {(Object.values(userStats || {}) || []).map(
           (value: any, index: number) => {
+            if (value.entity === "pending" || value.entity === "deleted")
+              return null;
             return (
               <StatisticsCard
                 key={index}
@@ -91,7 +93,7 @@ const UserStatistics = () => {
           }
         )}
       </Row>
-      <Row gutter={16} style={{ marginTop: "rem" }}>
+      <Row gutter={16} style={{ marginTop: "rem", justifyContent: "center" }}>
         <Col xs={24} sm={24} md={12} lg={12} style={{ marginBottom: 16 }}>
           <Typography.Title level={5} style={{ textAlign: "center" }}>
             New Users
