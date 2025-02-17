@@ -10,7 +10,6 @@ import Profile from "./pages/profile";
 import PageNotFound from "./pages/404";
 import Users from "./pages/user";
 import Dashboard from "./pages/dashboard";
-import Goals from "./pages/users";
 import GameStatistics from "./pages/gameStatistics";
 import GameInformation from "./pages/gameStatistics/GamesInformation";
 import NoAccess from "./pages/noAccess";

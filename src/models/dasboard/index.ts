@@ -232,7 +232,7 @@ export const fetchAllGamesCount = createAsyncThunk(
 );
 export const fetchAllGamesData = createAsyncThunk(
   `${name}/fetchAllGamesData`,
-  async (workplaceId: string) => {
+  async () => {
     const gamesDate = await getAllGamesData();
     return gamesDate;
   }

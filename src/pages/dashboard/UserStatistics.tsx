@@ -7,56 +7,13 @@ import {
   UsergroupAddOutlined,
 } from "@ant-design/icons";
 import Graphs from "../../components/graphs";
-import { Row, Col, Tag, Typography, theme } from "antd";
+import { Row, Col, Typography, theme } from "antd";
 import { Status } from "../../utils/statusHandler";
 import StatisticsCard from "../../components/StatisticsCard";
 import React from "react";
 import { useAppSelector } from "../../store";
-import { DashboardTable, StatsCardTitle } from "./Component";
 import { Area } from "recharts";
-
-const columns = [
-  {
-    title: "Popular Goal Categories",
-    children: [
-      {
-        title: "Keywords",
-        dataIndex: "cluster_class",
-        key: "cluster_class",
-        width: 250,
-        align: "left",
-        render(value: string) {
-          return (
-            <Tag color="blue" bordered={false} style={{ fontSize: 15 }}>
-              {value}
-            </Tag>
-          );
-        },
-      },
-      {
-        title: "Users",
-        dataIndex: "user_count",
-        key: "user_count",
-        width: 100,
-        align: "center",
-        render(value: string) {
-          return <Typography.Text>{value}</Typography.Text>;
-        },
-      },
-
-      {
-        title: "Goals",
-        dataIndex: "goals_count",
-        key: "goals_count",
-        width: 100,
-        align: "center",
-        render(value: string) {
-          return <Typography.Text>{value}</Typography.Text>;
-        },
-      },
-    ],
-  },
-];
+import { StatsCardTitle } from "./Component";
 
 interface UserStateData {
   [key: string]: {
@@ -71,10 +28,8 @@ const UserStatistics = () => {
     getPendingRequestStatus,
     getTotalUsersStatus,
     getDeletedUsersCountStatus,
-    getCategoriesClusterClassesStatus,
     fetchUsersCountRespectedDateStatus,
     usersCountRespectedDateForGraph,
-    TopCategoriesClusterClasses,
     userStats,
   } = useAppSelector((state: any) => state.dashboard);
 

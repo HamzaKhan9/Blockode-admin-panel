@@ -1,6 +1,6 @@
 import PageHeading from "../../components/PageHeading";
 import { useState } from "react";
-import { UserOutlined, InsertRowLeftOutlined } from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
 import Container from "../../components/container";
 import { Form, Input, message } from "antd";
 import Button from "../../components/Button";

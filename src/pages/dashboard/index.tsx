@@ -138,7 +138,7 @@ const Dashboard = () => {
       dispatch(getTotalUsers(selectedWorkplace.workplaceId));
       dispatch(getCategoriesClusterClasses(selectedWorkplace.workplaceId));
       dispatch(fetchAllGamesCount());
-      dispatch(fetchAllGamesData(selectedWorkplace.workplaceId));
+      dispatch(fetchAllGamesData());
       dispatch(setTimeRange(Number(new Date().getTime())));
     }
   };

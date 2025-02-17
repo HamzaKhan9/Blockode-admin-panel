@@ -7,8 +7,6 @@ import { useDispatch } from "react-redux";
 import Auth from "../../services/auth";
 const { Header } = Layout;
 import { createUseStyles } from "react-jss";
-import Notification from "../../components/Notification";
-import AutoCompleteSelector from "../../components/AutocompleteSelector";
 import logoutImg from "../../assets/images/logout.svg";
 import AlertPopup from "../../components/AlertPopup";
 import { unsetAccountId, unsetUid } from "../../models/auth";
@@ -76,7 +74,6 @@ const useStyles = createUseStyles({
 });
 const LayoutHeader = () => {
   const dispatch = useDispatch();
-  const selectedWorkplace = useAppSelector((state) => state.workplace);
 
   const userData = useAppSelector((state) => state.profile.user);
   const classes = useStyles();
