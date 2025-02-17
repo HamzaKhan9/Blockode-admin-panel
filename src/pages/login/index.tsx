@@ -6,12 +6,12 @@ import { createUseStyles } from "react-jss";
 import Button from "../../components/Button";
 import { useDispatch } from "react-redux";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
-import { Auth } from "@supabase/auth-ui-react";
 import { useNavigate } from "react-router-dom";
 import supabase, { ENV } from "../../supabase.config";
 import { setAccountId, setRole, unsetAccountId } from "../../models/auth";
 import { DashboardFilled, GoogleOutlined } from "@ant-design/icons";
 import { useQueryParam } from "../../Hooks/useQuery";
+import Auth from "../../services/auth";
 
 type FieldType = {
   username?: string;
@@ -46,20 +46,6 @@ const Login: React.FC = () => {
   const onFinish = async (values: any) => {
     try {
       setLoading(true);
-      // const { data, error } = await supabase.functions.invoke(
-      //   "check-is-admin",
-      //   {
-      //     body: JSON.stringify({ email: values.username }),
-      //   }
-      // );
-
-      // if (!data?.result)
-      //   throw { message: "You must have admin access to login" };
-      // dispatch(setRole(data?.result));
-      // if (data?.result === "super-admin") {
-      //   dispatch(unsetAccountId());
-      // }
-
       const userData = await Auth.login(values.username, values.password);
     } catch (error: any) {
       message.error(error.message);
@@ -68,28 +54,12 @@ const Login: React.FC = () => {
     }
   };
 
-  const handleGoogleLogin = async (values: any) => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo:
-          ENV === "dev"
-            ? location.origin
-            : "https://lca-admin-panel.vercel.app/",
-        queryParams: {
-          prompt: "consent",
-        },
-      },
-    });
-    if (error) return message.error(error?.message);
-  };
-
   return (
     <div className={classes.loginWrapper}>
       <div>
         <h1>Login </h1>
       </div>
-      {/* <Form
+      <Form
         name="basic"
         style={{ maxWidth: 400, width: 400 }}
         initialValues={{ remember: true }}
@@ -124,41 +94,7 @@ const Login: React.FC = () => {
             Submit
           </Button>
         </Form.Item>
-        <div className="login_or">or</div>
-        <Button
-          icon={<GoogleOutlined size={20} />}
-          fullWidth
-          onClick={handleGoogleLogin}
-        >
-          Continue with Google
-        </Button>
-      </Form> */}
-      <Auth
-        supabaseClient={supabase}
-        appearance={{
-          theme: ThemeSupa,
-          variables: {
-            default: {
-              colors: {
-                brand: "rgb(219, 169, 61)",
-                brandAccent: "rgb(255, 198, 75)",
-              },
-            },
-          },
-        }}
-        theme={"default"}
-        providers={[]}
-        queryParams={{
-          signup_intent: "login",
-          forgot_password_intent: "login",
-          prompt: "consent",
-        }}
-        redirectTo={
-          gotoQuery
-            ? `${window.location.origin}${gotoQuery}`
-            : `${window.location.origin}`
-        }
-      />
+      </Form>
     </div>
   );
 };
