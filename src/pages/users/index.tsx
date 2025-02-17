@@ -12,18 +12,15 @@ import {
   message,
 } from "antd";
 import { MyTheme } from "../../types/theme";
-import { Tooltip } from "antd";
 import { SearchOutlined, DownloadOutlined } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { getUsersAlongGoals } from "../../models/goals";
 import debounce from "lodash.debounce";
-import CustomSlider from "../../components/Slider";
 import { Status } from "../../utils/statusHandler";
 import CustomModal from "../../components/CustomModal";
 import Goals from "../../services/goals";
 import type { InputRef } from "antd";
 import { saveAs } from "file-saver";
-import { RenderFunction } from "antd/es/_util/getRenderPropValue";
 import { convertToCsv } from "../../utils";
 import { globalErrorHandler } from "../../utils/errorHandler";
 import { categoriesConstant } from "../../constants";
@@ -459,70 +456,7 @@ const Users = () => {
                     </div>
                   </div>
 
-                  <div className={classes.container}>
-                    {user?.goals?.length > 0 ? (
-                      <CustomSlider>
-                        {user.goals.map(
-                          (
-                            goal: {
-                              description:
-                                | string
-                                | number
-                                | boolean
-                                | React.ReactElement<
-                                    any,
-                                    string | React.JSXElementConstructor<any>
-                                  >
-                                | Iterable<React.ReactNode>
-                                | React.ReactPortal
-                                | RenderFunction
-                                | null
-                                | undefined;
-                              id: React.Key | null | undefined;
-                              url: string | undefined;
-                              name:
-                                | string
-                                | number
-                                | boolean
-                                | React.ReactElement<
-                                    any,
-                                    string | React.JSXElementConstructor<any>
-                                  >
-                                | Iterable<React.ReactNode>
-                                | null
-                                | undefined;
-                            },
-                            ix: number
-                          ) => (
-                            <Tooltip
-                              key={ix}
-                              placement="bottom"
-                              overlayInnerStyle={{
-                                color: "black",
-                                backgroundColor: "white ",
-                              }}
-                              title={goal.description}
-                            >
-                              <div style={{ position: "relative" }}>
-                                <img
-                                  className={classes.image}
-                                  src={goal?.url || "/images/no-image.svg"}
-                                  alt={String(goal?.name) || ""}
-                                />
-                                {goal?.name && (
-                                  <span className={classes.overlay}>
-                                    <h3>{goal.name}</h3>
-                                  </span>
-                                )}
-                              </div>
-                            </Tooltip>
-                          )
-                        )}
-                      </CustomSlider>
-                    ) : (
-                      <p>No goals available</p>
-                    )}
-                  </div>
+                  <div className={classes.container}></div>
                 </Card>
               );
             })}
