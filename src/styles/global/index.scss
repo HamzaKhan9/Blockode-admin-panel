@@ -1,0 +1,332 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.ant-table-wrapper .ant-table-pagination {
+  padding-right: 30px;
+}
+
+.image_uploader .ant-modal .ant-modal-content {
+  height: 400px !important;
+}
+
+.ant-upload-wrapper.ant-upload-picture-circle-wrapper
+  .ant-upload.ant-upload-select {
+  width: 140px !important;
+  height: 140px !important;
+}
+
+.ant-upload-wrapper.ant-upload-picture-circle-wrapper
+  .ant-upload-list.ant-upload-list-picture-circle
+  .ant-upload-list-item-container {
+  width: 140px !important;
+  height: 140px !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dcdcdc;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #dcdcdc;
+}
+
+::-webkit-scrollbar-horizontal {
+  height: 8px;
+  width: 8px;
+}
+
+/* Customize the horizontal scrollbar track */
+::-webkit-scrollbar-track-horizontal {
+  background-color: #f0f0f0;
+}
+
+/* Customize the horizontal scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb-horizontal {
+  background-color: #dcdcdc;
+
+  border-radius: 5px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb-horizontal:hover {
+  background-color: #dcdcdc;
+}
+
+.ant-modal-body {
+  max-height: 70vh;
+  position: relative;
+
+  padding: 0 !important; /* Remove padding */
+  overflow: auto; /* Enable scrolling */
+}
+
+.create_activity {
+  .ant-modal-content {
+    border-radius: 16px;
+    padding-right: 0px !important;
+  }
+}
+.ant-modal-content {
+  border-radius: 16px;
+}
+
+.ant-layout {
+  overflow: hidden !important;
+}
+
+.slick-dots li {
+  margin: 0 !important;
+  margin-bottom: 7px;
+}
+
+.slick-dots {
+  bottom: -36px !important;
+}
+
+.slick-slide > div {
+  margin: 0 30px;
+}
+
+.slick-slide > div :nth-child(1) {
+  margin-left: 0px;
+}
+
+.slick-list {
+  margin-right: -30px;
+}
+
+.game_modal {
+  .ant-modal-content {
+    border-radius: 16px;
+    padding-right: 0px !important;
+  }
+}
+
+.ant-collapse-header {
+  padding: 6px 10px !important;
+}
+.ant-collapse-header .ant-collapse-expand-icon {
+  height: 70px !important;
+}
+
+.ant-select-clear {
+  margin-right: 7px !important;
+  margin-top: -11px !important;
+}
+
+.ant-table-thead .ant-table-cell {
+  background-color: #f0f7ff !important;
+  height: 7px !important;
+}
+
+// .design_table {
+.highlight-bottom-border > td {
+  border-bottom: solid 1px black !important;
+}
+
+.highlight-top-border > td {
+  border-top: solid 2px black !important;
+  border-bottom: solid 2px #6d9eff !important;
+}
+// }
+
+.login_or {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: #888;
+}
+
+/*
+============================================================
+              No Access Page
+============================================================
+*/
+
+$animationTime: 2s;
+// * {
+//   position: relative;
+// }
+
+.lock-parent {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #eee, #aaa);
+}
+
+.lock-container {
+  height: 50px;
+  position: relative;
+}
+.lock {
+  border-radius: 5px;
+  width: 55px;
+  height: 45px;
+  background-color: #333;
+  animation: dip 1s;
+  animation-delay: ($animationTime - 0.5);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-left: 5px solid #333;
+    height: 20px;
+    width: 15px;
+    left: calc(50% - 12.5px);
+  }
+
+  &::before {
+    top: -30px;
+    border: 5px solid #333;
+    border-bottom-color: transparent;
+    border-radius: 15px 15px 0 0;
+    height: 30px;
+    animation: lock $animationTime, spin $animationTime;
+  }
+
+  &::after {
+    top: -10px;
+    border-right: 5px solid transparent;
+    animation: spin $animationTime;
+  }
+}
+
+@keyframes lock {
+  0% {
+    top: -45px;
+  }
+  65% {
+    top: -45px;
+  }
+  100% {
+    top: -30px;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: scaleX(-1);
+    left: calc(50% - 30px);
+  }
+  65% {
+    transform: scaleX(1);
+    left: calc(50% - 12.5px);
+  }
+}
+
+@keyframes dip {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.lock-message {
+  h1 {
+    margin-bottom: 15px;
+  }
+  p {
+    margin-bottom: 15px;
+  }
+}
+
+/*
+====================================================
+            Dashboard Layout
+====================================================
+*/
+
+.page_root {
+  display: flex;
+  flex-direction: column;
+}
+
+.search_input {
+  width: 50%;
+  padding-inline: 20px;
+}
+
+.search_icon {
+  font-size: 18px;
+  opacity: 0.5;
+  color: #1677ff;
+  margin-right: 8px;
+}
+
+.assesment_user_card .ant-card-body {
+  padding: 0px !important;
+}
+
+/*
+====================================================
+            Assessments
+====================================================
+*/
+
+.loading_center {
+  display: flex;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.assessment-instruction-item{
+  display: list-item;
+  list-style-type: disc;
+  margin-left: 20px;
+  font-size: 16px;
+  line-height: 18px;
+}

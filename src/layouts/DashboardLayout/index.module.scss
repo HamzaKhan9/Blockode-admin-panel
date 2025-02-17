@@ -1,0 +1,15 @@
+.logo_image {
+  margin-top: -2px;
+}
+
+.layout {
+  [class*="ant-layout"] {
+    background-color: theme("color-white") !important;
+  }
+  background-color: theme("color-white") !important;
+}
+
+.scroll_container {
+  padding: 5rem 3rem 2rem 3rem;
+  min-height: 100%;
+}
