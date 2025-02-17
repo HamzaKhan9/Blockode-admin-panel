@@ -13,7 +13,6 @@ import Dashboard from "./pages/dashboard";
 import GameStatistics from "./pages/gameStatistics";
 import GameInformation from "./pages/gameStatistics/GamesInformation";
 import NoAccess from "./pages/noAccess";
-import EmailVerified from "./pages/emailVerified";
 
 export const routes: RouteItem[] = [
   {
@@ -92,21 +91,12 @@ export const routes: RouteItem[] = [
     authType: "only-authenticated",
     element: Profile,
   },
-
   {
     path: "/login",
     layoutType: "auth",
     authType: "only-unauthenticated",
     element: Login,
   },
-
-  {
-    path: "/email-verified",
-    layoutType: "auth",
-    authType: "only-unauthenticated",
-    element: EmailVerified,
-  },
-
   {
     path: "/",
     element: PageNotFound,

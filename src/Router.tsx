@@ -37,6 +37,7 @@ import EmptyLayout from "./layouts/EmptyLayout";
 import { useAppDispatch, useAppSelector } from "./store";
 import { Status } from "./utils/statusHandler";
 import analytics from "./analytics";
+import EmailVerified from "./pages/emailVerified";
 
 const routeRenderer = (
   routes: RouteItem[],
@@ -199,6 +200,11 @@ export default function Router() {
             }
           />
         ))}
+        <Route
+          key={"email-verified"}
+          path="/email-verified"
+          element={<EmailVerified />}
+        />
       </Routes>
       {/* </RootWrapper> */}
     </BrowserRouter>
